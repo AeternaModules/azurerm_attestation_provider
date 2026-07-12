@@ -1,3 +1,7 @@
+output "attestation_providers_id" {
+  description = "Map of id values across all attestation_providers, keyed the same as var.attestation_providers"
+  value       = { for k, v in azurerm_attestation_provider.attestation_providers : k => v.id }
+}
 output "attestation_providers_attestation_uri" {
   description = "Map of attestation_uri values across all attestation_providers, keyed the same as var.attestation_providers"
   value       = { for k, v in azurerm_attestation_provider.attestation_providers : k => v.attestation_uri }
